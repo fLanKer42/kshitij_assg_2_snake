@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Explaination</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style type="text/css">
+        body {
+            background-color:rgb(71, 61, 139);
+        }
+        .Heading {
+            text-align: center;
+            font-size: 20px;
+            color:grey;
+        }
+        .head {
+            font-size: 60px;
+            color: #bdbd1c;
+        }
+        .container {
+            display:block;
+            color: #999933;
+            margin-left: auto;
+            margin-right: auto;
+            width: 500px;
+            text-align: justify;
+            font-size:20px;
+        }
+        .starter {
+            font-size: 50px;
+        }
+        strong {
+            color: #bdbd1c;
+        }
+        a {
+            color:#000000;
+        }
+        @media only screen and (max-width: 500px) {
+        .container {
+            width:100%;
+        }
+        }
+        </style>
+    </head>
+    <body>
+        <div class="Heading">
+            <span class="head">Snake game</span><br />by Dhruv Rai<br />fLanKer42<br /><a href="canvas.html">go back to game</a>
+        </div>
+        <div class="container">
+            <p><span class="starter">T</span>he game snake is based on basic javaScript and html canvas. The game area is a 320px x 480px canvas with the snake head as a 16x16 box. The head moves ahead at a predefined speed that is called <strong>pace</strong>. It is named as <strong>myGamePiece.pace</strong> where <strong>myGamePiece</strong> is the head of the snake.</p>
+            <p>The <strong>score</strong> variable is an integer that keeps count of the score. The variable <strong>btncount</strong> is an integer that keeps track of number of times direction of snake movement is changed.</p>
+            <p>The function <strong>setPace</strong> changes the value of <strong>myGamePiece.pace</strong> to the variable <strong>input_pace</strong> that is taken as input from the html.</p>
+            <p>The <strong>apple</strong> is a 16x16 px object on the canvas, collision with which increases the score and resets the apple. The apple is created using the function <strong>apple.set</strong>. This function sets <strong>apple.x</strong> and <strong>apple.y</strong> randomely anywhere in the canvas.</p>
+            <p>The <strong>maze</strong> is a set of obstacles that will terminate game on collision</p>
+            <p>As the page loads, the function <strong>myGameArea.start</strong> is called. This function creates the canvas, sets the score to zero, creates the <strong>apple</strong> and starts a timed interval that calls <strong>updateGameArea</strong> function periodically.</p>
+            <p><strong>updateGameArea()</strong> function calls <strong>myGamePiece.newPos()</strong> and <strong>myGamePiece.update()</strong>. The newPos function checks whether the user has changed direction, creates a new snake head, checks whether the snake head is colliding with the maze, itself or the edge, checks whether the head is colliding with the apple and finally calls <strong>clearFeces</strong>. The final function clears the previous head such that the snake length is maintained.</p>
+            <p>The <strong>tail</strong> is a Queue data structure that stores the previous coordinates of the previos heads of the snake. Data is enqueued in myGamePiece.newPos and dequeued in clearFeces.</p>
+            <p><strong>myGamePiece.update()</strong> function applies color to the new snake head and the new apple.</p>
+            <p>The <strong>terminate()</strong> function is called whenever the snake head collides with the edge, the maze or it's own body. This function clears the canvas, alerts the score and calls myGameArea.start() once again to restart the game.</p>
+            <p>The <strong>changeTheme</strong> function is used to change the background color as the score increases. </p>
+            <p><strong>moveleft(), moveright(), moveup(), movedown()</strong> change direction of motion by changing value of <strong>myGamePiece.speedX</strong> or <strong>myGamePiece.speedY</strong></p>
+        </div>
+    </body>
+</html>
