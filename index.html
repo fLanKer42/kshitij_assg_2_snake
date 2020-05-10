@@ -18,6 +18,7 @@
             }
             .canvas {
                 text-align: center;
+                scroll-behavior: contain;
             }
             .container {
                 text-align:center;
@@ -90,6 +91,14 @@
             }
             .score a:visited {
                 color:#999933;
+            }
+            @media only screen and (max-height: 640px) { /* this section is added only to better the gaming experience on a smaller screen*/
+                .btn {
+                    display:none;
+                }
+                .dropdown {
+                    display:none;
+                }
             }
         </style>
         <script>
@@ -181,6 +190,7 @@
                         this.canvas.style.marginLeft = "auto";
                         this.canvas.style.marginRight = "auto";
                         this.canvas.style.backgroundColor="blue";
+                        this.canvas.style.overscrollBehavior="contain";
                         this.context = this.canvas.getContext("2d");
                         score=0;
                         tail = new Queue();
